@@ -24,14 +24,6 @@
         <joint name="robot1_wrist_2_joint" value="0" />
         <joint name="robot1_wrist_3_joint" value="0" />
     </group_state>
-    <group_state name="R1Home" group="robot1">
-        <joint name="robot1_elbow_joint" value="1.57" />
-        <joint name="robot1_shoulder_lift_joint" value="-1.57" />
-        <joint name="robot1_shoulder_pan_joint" value="1.24" />
-        <joint name="robot1_wrist_1_joint" value="-1.57" />
-        <joint name="robot1_wrist_2_joint" value="-1.57" />
-        <joint name="robot1_wrist_3_joint" value="0" />
-    </group_state>
     <group_state name="R2Up" group="robot2">
         <joint name="robot2_elbow_joint" value="0" />
         <joint name="robot2_shoulder_lift_joint" value="-1.57" />
@@ -48,18 +40,18 @@
         <joint name="robot2_wrist_2_joint" value="-1.57" />
         <joint name="robot2_wrist_3_joint" value="0" />
     </group_state>
-    <group_state name="R1PreGrasp" group="robot1">
+    <group_state name="R1Home" group="robot1">
         <joint name="robot1_elbow_joint" value="1.57" />
         <joint name="robot1_shoulder_lift_joint" value="-1.57" />
-        <joint name="robot1_shoulder_pan_joint" value="0.4143" />
+        <joint name="robot1_shoulder_pan_joint" value="1.24" />
         <joint name="robot1_wrist_1_joint" value="-1.57" />
         <joint name="robot1_wrist_2_joint" value="-1.57" />
         <joint name="robot1_wrist_3_joint" value="0" />
     </group_state>
-    <group_state name="R1Place" group="robot1">
+    <group_state name="R1PreGrasp" group="robot1">
         <joint name="robot1_elbow_joint" value="1.57" />
         <joint name="robot1_shoulder_lift_joint" value="-1.57" />
-        <joint name="robot1_shoulder_pan_joint" value="2.87" />
+        <joint name="robot1_shoulder_pan_joint" value="0.4143" />
         <joint name="robot1_wrist_1_joint" value="-1.57" />
         <joint name="robot1_wrist_2_joint" value="-1.57" />
         <joint name="robot1_wrist_3_joint" value="0" />
@@ -71,6 +63,14 @@
         <joint name="robot2_wrist_1_joint" value="-2.0023" />
         <joint name="robot2_wrist_2_joint" value="-1.6225" />
         <joint name="robot2_wrist_3_joint" value="0" />
+    </group_state>
+    <group_state name="R1Place" group="robot1">
+        <joint name="robot1_shoulder_pan_joint" value="2.86949855063" />
+        <joint name="robot1_shoulder_lift_joint" value="-1.02871589958" />
+        <joint name="robot1_elbow_joint" value="2.13318128771" />
+        <joint name="robot1_wrist_1_joint" value="-2.66723587068" />
+        <joint name="robot1_wrist_2_joint" value="-1.56775127958" />
+        <joint name="robot1_wrist_3_joint" value="0" />
     </group_state>
     <group_state name="R2Place" group="robot2">
         <joint name="robot2_elbow_joint" value="1.3364" />
@@ -85,7 +85,9 @@
     <virtual_joint name="fixed_base2" type="fixed" parent_frame="robot2_base_link" child_link="world" />
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="bin_1_base_link" link2="break_beam_base_link" reason="Adjacent" />
-    <disable_collisions link1="bin_1_base_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="bin_1_base_link" link2="logical_camera1_base_link" reason="Adjacent" />
+    <disable_collisions link1="bin_1_base_link" link2="logical_camera2_base_link" reason="Adjacent" />
+    <disable_collisions link1="bin_1_base_link" link2="robot1_base_link" reason="Adjacent" />
     <disable_collisions link1="bin_1_base_link" link2="robot1_ee_link" reason="Never" />
     <disable_collisions link1="bin_1_base_link" link2="robot1_forearm_link" reason="Never" />
     <disable_collisions link1="bin_1_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
@@ -94,21 +96,20 @@
     <disable_collisions link1="bin_1_base_link" link2="robot1_wrist_1_link" reason="Never" />
     <disable_collisions link1="bin_1_base_link" link2="robot1_wrist_2_link" reason="Never" />
     <disable_collisions link1="bin_1_base_link" link2="robot1_wrist_3_link" reason="Never" />
-    <disable_collisions link1="bin_1_base_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="bin_1_base_link" link2="robot2_base_link" reason="Adjacent" />
     <disable_collisions link1="bin_1_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
     <disable_collisions link1="bin_1_base_link" link2="robot2_shoulder_link" reason="Never" />
     <disable_collisions link1="bin_1_base_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="bin_1_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="bin_1_base_link" link2="workcell" reason="Adjacent" />
-    <disable_collisions link1="break_beam_base_link" link2="robot1_base_link" reason="Never" />
+    <disable_collisions link1="break_beam_base_link" link2="logical_camera1_base_link" reason="Adjacent" />
+    <disable_collisions link1="break_beam_base_link" link2="logical_camera2_base_link" reason="Adjacent" />
+    <disable_collisions link1="break_beam_base_link" link2="robot1_base_link" reason="Adjacent" />
     <disable_collisions link1="break_beam_base_link" link2="robot1_ee_link" reason="Never" />
-    <disable_collisions link1="break_beam_base_link" link2="robot1_forearm_link" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
     <disable_collisions link1="break_beam_base_link" link2="robot1_shoulder_link" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="robot1_upper_arm_link" reason="Never" />
-    <disable_collisions link1="break_beam_base_link" link2="robot1_wrist_1_link" reason="Never" />
-    <disable_collisions link1="break_beam_base_link" link2="robot1_wrist_2_link" reason="Never" />
-    <disable_collisions link1="break_beam_base_link" link2="robot1_wrist_3_link" reason="Never" />
-    <disable_collisions link1="break_beam_base_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="break_beam_base_link" link2="robot2_base_link" reason="Adjacent" />
     <disable_collisions link1="break_beam_base_link" link2="robot2_ee_link" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="robot2_forearm_link" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
@@ -117,26 +118,68 @@
     <disable_collisions link1="break_beam_base_link" link2="robot2_wrist_1_link" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="robot2_wrist_3_link" reason="Never" />
-    <disable_collisions link1="break_beam_base_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="break_beam_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="break_beam_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="break_beam_base_link" link2="workcell" reason="Adjacent" />
-    <disable_collisions link1="robot1_base_link" link2="robot1_base_link" reason="Default" />
+    <disable_collisions link1="logical_camera1_base_link" link2="logical_camera2_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="logical_camera1_base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_ee_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_forearm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_wrist_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot1_wrist_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_base_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_ee_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_forearm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_shoulder_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_upper_arm_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_wrist_2_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="logical_camera2_base_link" link2="workcell" reason="Adjacent" />
     <disable_collisions link1="robot1_base_link" link2="robot1_pedestal_link" reason="Adjacent" />
     <disable_collisions link1="robot1_base_link" link2="robot1_shoulder_link" reason="Adjacent" />
     <disable_collisions link1="robot1_base_link" link2="robot1_upper_arm_link" reason="Never" />
     <disable_collisions link1="robot1_base_link" link2="robot1_wrist_1_link" reason="Never" />
-    <disable_collisions link1="robot1_base_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_base_link" reason="Adjacent" />
     <disable_collisions link1="robot1_base_link" link2="robot2_ee_link" reason="Never" />
     <disable_collisions link1="robot1_base_link" link2="robot2_forearm_link" reason="Never" />
-    <disable_collisions link1="robot1_base_link" link2="robot2_pedestal_link" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
     <disable_collisions link1="robot1_base_link" link2="robot2_shoulder_link" reason="Never" />
     <disable_collisions link1="robot1_base_link" link2="robot2_upper_arm_link" reason="Never" />
     <disable_collisions link1="robot1_base_link" link2="robot2_wrist_1_link" reason="Never" />
     <disable_collisions link1="robot1_base_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_base_link" link2="robot2_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot1_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
-    <disable_collisions link1="robot1_base_link" link2="workcell" reason="Never" />
-    <disable_collisions link1="robot1_ee_link" link2="robot1_ee_link" reason="Default" />
+    <disable_collisions link1="robot1_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="robot1_base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="robot1_ee_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="robot1_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_ee_link" link2="robot1_wrist_3_link" reason="Adjacent" />
     <disable_collisions link1="robot1_ee_link" link2="robot2_base_link" reason="Never" />
     <disable_collisions link1="robot1_ee_link" link2="robot2_ee_link" reason="Never" />
@@ -147,8 +190,10 @@
     <disable_collisions link1="robot1_ee_link" link2="robot2_wrist_1_link" reason="Never" />
     <disable_collisions link1="robot1_ee_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_ee_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper2_base_link" reason="Never" />
-    <disable_collisions link1="robot1_forearm_link" link2="robot1_forearm_link" reason="Default" />
+    <disable_collisions link1="robot1_ee_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_forearm_link" link2="robot1_upper_arm_link" reason="Adjacent" />
     <disable_collisions link1="robot1_forearm_link" link2="robot1_wrist_1_link" reason="Adjacent" />
     <disable_collisions link1="robot1_forearm_link" link2="robot2_base_link" reason="Never" />
@@ -161,9 +206,10 @@
     <disable_collisions link1="robot1_forearm_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_forearm_link" link2="robot2_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot1_forearm_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_forearm_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_pedestal_link" link2="robot1_pedestal_link" reason="Adjacent" />
     <disable_collisions link1="robot1_pedestal_link" link2="robot1_shoulder_link" reason="Never" />
-    <disable_collisions link1="robot1_pedestal_link" link2="robot2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="robot2_base_link" reason="Adjacent" />
     <disable_collisions link1="robot1_pedestal_link" link2="robot2_ee_link" reason="Never" />
     <disable_collisions link1="robot1_pedestal_link" link2="robot2_forearm_link" reason="Never" />
     <disable_collisions link1="robot1_pedestal_link" link2="robot2_pedestal_link" reason="Adjacent" />
@@ -173,9 +219,11 @@
     <disable_collisions link1="robot1_pedestal_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_pedestal_link" link2="robot2_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot1_pedestal_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_pedestal_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_pedestal_link" link2="workcell" reason="Adjacent" />
-    <disable_collisions link1="robot1_shoulder_link" link2="robot1_shoulder_link" reason="Default" />
     <disable_collisions link1="robot1_shoulder_link" link2="robot1_upper_arm_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot1_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="robot1_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_shoulder_link" link2="robot2_base_link" reason="Never" />
     <disable_collisions link1="robot1_shoulder_link" link2="robot2_ee_link" reason="Never" />
     <disable_collisions link1="robot1_shoulder_link" link2="robot2_forearm_link" reason="Never" />
@@ -186,8 +234,8 @@
     <disable_collisions link1="robot1_shoulder_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_shoulder_link" link2="robot2_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot1_shoulder_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot1_shoulder_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_shoulder_link" link2="workcell" reason="Never" />
-    <disable_collisions link1="robot1_upper_arm_link" link2="robot1_upper_arm_link" reason="Default" />
     <disable_collisions link1="robot1_upper_arm_link" link2="robot2_base_link" reason="Never" />
     <disable_collisions link1="robot1_upper_arm_link" link2="robot2_ee_link" reason="Never" />
     <disable_collisions link1="robot1_upper_arm_link" link2="robot2_forearm_link" reason="Never" />
@@ -198,8 +246,9 @@
     <disable_collisions link1="robot1_upper_arm_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_upper_arm_link" link2="robot2_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot1_upper_arm_link" link2="vacuum_gripper2_base_link" reason="Never" />
-    <disable_collisions link1="robot1_wrist_1_link" link2="robot1_wrist_1_link" reason="Default" />
+    <disable_collisions link1="robot1_upper_arm_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_wrist_1_link" link2="robot1_wrist_2_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="robot1_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_1_link" link2="robot2_base_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_1_link" link2="robot2_ee_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_1_link" link2="robot2_forearm_link" reason="Never" />
@@ -209,8 +258,10 @@
     <disable_collisions link1="robot1_wrist_1_link" link2="robot2_wrist_1_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_1_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_1_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper2_base_link" reason="Never" />
-    <disable_collisions link1="robot1_wrist_2_link" link2="robot1_wrist_2_link" reason="Default" />
+    <disable_collisions link1="robot1_wrist_1_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_wrist_2_link" link2="robot1_wrist_3_link" reason="Adjacent" />
     <disable_collisions link1="robot1_wrist_2_link" link2="robot2_base_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_2_link" link2="robot2_ee_link" reason="Never" />
@@ -221,8 +272,10 @@
     <disable_collisions link1="robot1_wrist_2_link" link2="robot2_wrist_1_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_2_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_2_link" link2="robot2_wrist_3_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper2_base_link" reason="Never" />
-    <disable_collisions link1="robot1_wrist_3_link" link2="robot1_wrist_3_link" reason="Default" />
+    <disable_collisions link1="robot1_wrist_2_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_wrist_3_link" link2="robot2_base_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_3_link" link2="robot2_ee_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_3_link" link2="robot2_forearm_link" reason="Never" />
@@ -233,40 +286,56 @@
     <disable_collisions link1="robot1_wrist_3_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_3_link" link2="robot2_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper1_base_link" reason="Adjacent" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper2_base_link" reason="Never" />
-    <disable_collisions link1="robot2_base_link" link2="robot2_base_link" reason="Default" />
+    <disable_collisions link1="robot1_wrist_3_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_base_link" link2="robot2_pedestal_link" reason="Adjacent" />
     <disable_collisions link1="robot2_base_link" link2="robot2_shoulder_link" reason="Adjacent" />
     <disable_collisions link1="robot2_base_link" link2="vacuum_gripper1_base_link" reason="Never" />
-    <disable_collisions link1="robot2_base_link" link2="workcell" reason="Never" />
-    <disable_collisions link1="robot2_ee_link" link2="robot2_ee_link" reason="Default" />
+    <disable_collisions link1="robot2_base_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_base_link" link2="workcell" reason="Adjacent" />
+    <disable_collisions link1="robot2_ee_link" link2="robot2_wrist_1_link" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="robot2_wrist_2_link" reason="Never" />
     <disable_collisions link1="robot2_ee_link" link2="robot2_wrist_3_link" reason="Adjacent" />
     <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper1_base_link" reason="Never" />
-    <disable_collisions link1="robot2_forearm_link" link2="robot2_forearm_link" reason="Default" />
+    <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot2_ee_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_forearm_link" link2="robot2_upper_arm_link" reason="Adjacent" />
     <disable_collisions link1="robot2_forearm_link" link2="robot2_wrist_1_link" reason="Adjacent" />
     <disable_collisions link1="robot2_forearm_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_forearm_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_pedestal_link" link2="robot2_pedestal_link" reason="Adjacent" />
     <disable_collisions link1="robot2_pedestal_link" link2="robot2_shoulder_link" reason="Never" />
     <disable_collisions link1="robot2_pedestal_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_pedestal_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_pedestal_link" link2="workcell" reason="Adjacent" />
-    <disable_collisions link1="robot2_shoulder_link" link2="robot2_shoulder_link" reason="Default" />
     <disable_collisions link1="robot2_shoulder_link" link2="robot2_upper_arm_link" reason="Adjacent" />
     <disable_collisions link1="robot2_shoulder_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_shoulder_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_shoulder_link" link2="workcell" reason="Never" />
-    <disable_collisions link1="robot2_upper_arm_link" link2="robot2_upper_arm_link" reason="Default" />
     <disable_collisions link1="robot2_upper_arm_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_upper_arm_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_upper_arm_link" link2="workcell" reason="Never" />
-    <disable_collisions link1="robot2_wrist_1_link" link2="robot2_wrist_1_link" reason="Default" />
     <disable_collisions link1="robot2_wrist_1_link" link2="robot2_wrist_2_link" reason="Adjacent" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="robot2_wrist_3_link" reason="Never" />
     <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper1_base_link" reason="Never" />
-    <disable_collisions link1="robot2_wrist_2_link" link2="robot2_wrist_2_link" reason="Default" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_1_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_wrist_2_link" link2="robot2_wrist_3_link" reason="Adjacent" />
     <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper1_base_link" reason="Never" />
-    <disable_collisions link1="robot2_wrist_3_link" link2="robot2_wrist_3_link" reason="Default" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_2_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper1_base_link" reason="Never" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper1_suction_cup" reason="Never" />
     <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper2_base_link" reason="Adjacent" />
-    <disable_collisions link1="vacuum_gripper1_base_link" link2="vacuum_gripper1_base_link" reason="Default" />
+    <disable_collisions link1="robot2_wrist_3_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_base_link" link2="vacuum_gripper1_suction_cup" reason="Adjacent" />
     <disable_collisions link1="vacuum_gripper1_base_link" link2="vacuum_gripper2_base_link" reason="Never" />
-    <disable_collisions link1="vacuum_gripper2_base_link" link2="vacuum_gripper2_base_link" reason="Default" />
+    <disable_collisions link1="vacuum_gripper1_base_link" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_suction_cup" link2="vacuum_gripper2_base_link" reason="Never" />
+    <disable_collisions link1="vacuum_gripper1_suction_cup" link2="vacuum_gripper2_suction_cup" reason="Never" />
+    <disable_collisions link1="vacuum_gripper2_base_link" link2="vacuum_gripper2_suction_cup" reason="Adjacent" />
 </robot>
